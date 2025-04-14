@@ -5,14 +5,13 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
-	"github.com/go-chi/chi"
 	"net/http"
 
+	"github.com/go-chi/chi"
+	"github.com/joho/godotenv"
 )
 
-func main () {
-	fmt.Println("Hello world")
+func main() {
 
 	godotenv.Load(".env")
 
@@ -25,7 +24,7 @@ func main () {
 
 	srv := &http.Server{
 		Handler: router,
-		Addr: ":" + portString,
+		Addr:    ":" + portString,
 	}
 
 	log.Printf("Server starting on port %v", portString)
