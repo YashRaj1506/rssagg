@@ -7,7 +7,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/go-chi/chi"
-	"github.com/go-chi/cors"
+	"net/http"
 
 )
 
@@ -28,7 +28,8 @@ func main () {
 		Addr: ":" + portString,
 	}
 
-	srv.ListenAndServe()
+	log.Printf("Server starting on port %v", portString)
+	err := srv.ListenAndServe()
 	if err != nil {
 		log.Fatal(err)
 	}
